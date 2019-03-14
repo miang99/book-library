@@ -18,6 +18,13 @@ const addBookToList = () =>{
     const Book = new book(title, author, pages, status);
     myLibrary.push(Book);
 }
+//set the books to the store
+const Store =() =>{
+    if(typeof(Storage) !== "undefined"){
+        window.localStorage.setItem('books', JSON.stringify(myLibrary));
+    }
+    else { console.log("your browser does not support local storage");}
+}
 //display the book library
 const render = () => {
     while(document.querySelector('#library').childNodes[0]){
@@ -60,38 +67,28 @@ function changeStatus(e){
     if (status == "Read") { status = "Unread";}
     else{ status = "Read";}
     myLibrary[index].status = status;
-    render();    
+    render(); 
+    Store();   
 }
 // function to delete a book from a library
 function deleteBook(e){
     let index = e.target.dataset.number;
     myLibrary.splice(index,1);
     render();
+    Store();
+}
+//set the library from store
+if (JSON.parse(window.localStorage.getItem('books'))){
+    myLibrary = JSON.parse(window.localStorage.getItem('books'));
+    render();
 }
 //add eventListener to the elements
-
-
 document.getElementById('book-form').addEventListener("submit",(e) =>
 {
     addBookToList();
     e.preventDefault();
     e.target.reset();    
     render();
+    Store();
 });
-
-/*document.getElementsByClassName('changeStatus').addEventListener('click', (e) =>
-{
-    e.preventDefault();
-    let index = e.target.dataset.number;
-    let sta  = myLibrary[index].status;
-    if (sta == "Read") { status = "Unread";}
-    else stat == "Unread";
-    myLibrary[index].status = status;
-    render();  
-}
-document.getElementsByClassName('delete').addEventListener('click', (e) =>{
-    e.preventDefault();
-    deleteBook();
-}); 
-*/
 
