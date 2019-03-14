@@ -58,6 +58,7 @@ const render = () => {
     Array.from(classDelete).forEach((ele) => {
         ele.addEventListener('click',deleteBook);
     });
+    Store();
 }
 // button to change status
 function changeStatus(e){
@@ -68,14 +69,14 @@ function changeStatus(e){
     else{ status = "Read";}
     myLibrary[index].status = status;
     render(); 
-    Store();   
+       
 }
 // function to delete a book from a library
 function deleteBook(e){
     let index = e.target.dataset.number;
     myLibrary.splice(index,1);
     render();
-    Store();
+    
 }
 //set the library from store
 if (JSON.parse(window.localStorage.getItem('books'))){
@@ -89,6 +90,6 @@ document.getElementById('book-form').addEventListener("submit",(e) =>
     e.preventDefault();
     e.target.reset();    
     render();
-    Store();
+    
 });
 
