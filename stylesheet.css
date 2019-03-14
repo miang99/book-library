@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    }
+body{
+    margin: 0;
+    padding: 15px 0 0 0;
+    background-image: linear-gradient(#002b80,black);
+    background-size: cover;
+    background-repeat: no-repeat, repeat;
+    min-height: 100vh;
+}
+h1{
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+}
+.content{
+    padding: 10px;
+    overflow: hidden;
+    margin: auto;
+    width: 60%;
+}
+form label{
+    color: white;
+    font-size: 1.2em;
+    }
+form div{
+    margin-top: 15px;
+    width:100%;
+}    
+input, select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+input[type="submit"]{
+    margin-top: 18px;
+    text-transform: uppercase;
+    background-color: #00004d;
+    border: 2px solid white;
+    color: white;
+    transition: 0.2 ease;
+}
+input[type="submit"]:hover{
+    transform: scale(1.1);
+    background-color: black;
+}
+table{
+    width: 100%;
+    color:white;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+td,th{
+    text-align: center;
+    padding: 5px 0;
+    border-bottom: 2px solid white;
+    text-transform: capitalize;
+}
+.delete{
+    color: red;
+
+}
+.changeStatus{
+    border-radius: 2px;
+
+}
+.changeStatus:hover{
+    transform: scale(1.1);
+}
+.delete{
+    cursor: pointer;
+}
