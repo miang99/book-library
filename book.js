@@ -79,10 +79,12 @@ function deleteBook(e){
     
 }
 //set the library from store
+window.onload = () =>{
 if (JSON.parse(window.localStorage.getItem('books'))){
     myLibrary = JSON.parse(window.localStorage.getItem('books'));
     render();
 }
+};
 //add eventListener to the elements
 document.getElementById('book-form').addEventListener("submit",(e) =>
 {
